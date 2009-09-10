@@ -1,0 +1,4 @@
+a = 5
+1 = 2
+1=2
+This is a bad line
