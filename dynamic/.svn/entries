@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="5"
+   name=""
+   committed-date="2009-03-04T02:42:51.786368Z"
+   url="http://svn.danielweimer.com/jhu484/dynamic"
+   last-author="jhu"
+   kind="dir"
+   uuid="33f517b6-4164-0410-a13a-b5010f9b84c5"
+   repos="http://svn.danielweimer.com/jhu484"
+   revision="6"/>
+<entry
+   committed-rev="1"
+   name="singleton_example.rb"
+   text-time="2009-03-04T02:27:15.000000Z"
+   committed-date="2009-03-04T02:25:06.615985Z"
+   checksum="c01e7f8b2cd8006259a26617b0af2ddb"
+   last-author="jhu"
+   kind="file"
+   prop-time="2009-03-04T02:27:15.000000Z"/>
+<entry
+   committed-rev="1"
+   name="proc_example.rb"
+   text-time="2009-03-04T02:27:15.000000Z"
+   committed-date="2009-03-04T02:25:06.615985Z"
+   checksum="fc5bc4d4f27b7bc0132e0d003319532b"
+   last-author="jhu"
+   kind="file"
+   prop-time="2009-03-04T02:27:15.000000Z"/>
+<entry
+   committed-rev="3"
+   name="method.rb"
+   text-time="2009-03-04T02:30:14.000000Z"
+   committed-date="2009-03-04T02:30:17.523950Z"
+   checksum="9232a6e758f3c9964aba64e719787eed"
+   last-author="jhu"
+   kind="file"
+   prop-time="2009-03-04T02:27:15.000000Z"/>
+<entry
+   committed-rev="5"
+   name="tc_introspect.rb"
+   text-time="2009-03-04T02:42:40.000000Z"
+   committed-date="2009-03-04T02:42:51.786368Z"
+   checksum="08abd78c0a0620e28f5ba54a8925fa43"
+   last-author="jhu"
+   kind="file"/>
+<entry
+   committed-rev="2"
+   name="eval.rb"
+   text-time="2009-03-04T02:27:57.000000Z"
+   committed-date="2009-03-04T02:28:25.522936Z"
+   checksum="3e301b27e5ee195567a5fa1ef237fee5"
+   last-author="jhu"
+   kind="file"
+   prop-time="2009-03-04T02:27:15.000000Z"/>
+<entry
+   committed-rev="1"
+   name="self.rb"
+   text-time="2009-03-04T02:27:15.000000Z"
+   committed-date="2009-03-04T02:25:06.615985Z"
+   checksum="5148b744eb6b424c9d21c0da7ba44bee"
+   last-author="jhu"
+   kind="file"
+   prop-time="2009-03-04T02:27:15.000000Z"/>
+<entry
+   committed-rev="4"
+   name="introspect.rb"
+   text-time="2009-03-04T02:34:35.000000Z"
+   committed-date="2009-03-04T02:34:49.674109Z"
+   checksum="38a02c907dcf3f930d8e9d3ea82df16b"
+   last-author="jhu"
+   kind="file"/>
+</wc-entries>
