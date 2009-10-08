@@ -87,3 +87,294 @@ Migrating to DeleteEmptyTags (20091007002151)
   [4;36;1mDocument Load (0.4ms)[0m   [0;1mSELECT * FROM "documents" [0m
   [4;36;1mDocument Create (0.5ms)[0m   [0;1mINSERT INTO "documents" ("name", "updated_at", "title", "body", "created_at") VALUES('D1', '2009-10-07 01:03:33', 'Title 1', 'This is doc 1 body', '2009-10-07 01:03:33')[0m
   [4;36;1mDocument Load (0.5ms)[0m   [0;1mSELECT * FROM "documents" [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (17.2ms)[0m   [0mCREATE UNIQUE INDEX "index_tags_on_name" ON "tags" ("name")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008010321')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("documents")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("tags")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT * FROM "tags" [0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008011604')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mPRAGMA index_list("documents")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("people")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "person_id" integer, "city" varchar(255), "state" varchar(255), "zip" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008011719')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("addresses")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("documents")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("people")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("tags")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: near "CONSTRAINT": syntax error: ALTER TABLE addresses 
+ ADD CONSTRAINT addresses_people_fkey 
+ FOREIGN KEY (person_id) 
+ REFERENCES people (id);[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mDocument Create (0.5ms)[0m   [0;1mINSERT INTO "documents" ("name", "updated_at", "title", "body", "created_at") VALUES(NULL, '2009-10-08 01:25:57', 'Some title', NULL, '2009-10-08 01:25:57')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such column: size: SELECT avg(size) AS avg_size FROM "documents" [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: near "CONSTRAINT": syntax error: ALTER TABLE addresses 
+ ADD CONSTRAINT addresses_people_fkey 
+ FOREIGN KEY (person_id) 
+ REFERENCES people (id);[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091008011804')[0m
+Migrating to AddNameToPerson (20091008013419)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSQLite3::SQLException: duplicate column name: fname: ALTER TABLE "people" ADD "fname" varchar(255)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+Migrating to AddNameToPerson (20091008013419)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091008013419')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("addresses")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("documents")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("people")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mPerson Create (0.6ms)[0m   [0;1mINSERT INTO "people" ("updated_at", "lname", "fname", "created_at") VALUES('2009-10-08 01:37:54', 'W', 'Dan', '2009-10-08 01:37:54')[0m
+  [4;35;1mPerson Load (0.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+Migrating to AddNameToPerson (20091008013419)
+Migrating to CreateIdentities (20091008014027)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "identities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "person_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008014027')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("addresses")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("documents")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("identities")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("people")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mIdentity Create (0.5ms)[0m   [0;1mINSERT INTO "identities" ("name", "updated_at", "person_id", "created_at") VALUES('superuser', '2009-10-08 01:43:09', NULL, '2009-10-08 01:43:09')[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mIdentity Load (0.2ms)[0m   [0;1mSELECT * FROM "identities" WHERE ("identities".person_id = 1) LIMIT 1[0m
+  [4;35;1mIdentity Update (0.3ms)[0m   [0mUPDATE "identities" SET "person_id" = 1, "updated_at" = '2009-10-08 01:43:27' WHERE "id" = 1[0m
+  [4;36;1mPerson Load (0.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mIdentity Load (0.5ms)[0m   [0mSELECT * FROM "identities" WHERE ("identities".person_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+Migrating to AddNameToPerson (20091008013419)
+Migrating to CreateIdentities (20091008014027)
+Migrating to AddEmployee (20091008015317)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mALTER TABLE "people" ADD "type" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mALTER TABLE "people" ADD "payroll_id" integer[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091008015317')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("addresses")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("documents")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("identities")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("people")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("tags")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mEmployee Create (0.5ms)[0m   [0;1mINSERT INTO "people" ("updated_at", "type", "lname", "fname", "created_at", "payroll_id") VALUES('2009-10-08 01:58:32', 'Employee', '1', 'Employee', '2009-10-08 01:58:32', 897)[0m
+  [4;35;1mPerson Load (0.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091007001446)
+Migrating to CreateTags (20091007001543)
+Migrating to AddTagDescription (20091007001947)
+Migrating to DeleteEmptyTags (20091007002151)
+Migrating to AddNameIndexToTag (20091008010321)
+Migrating to CreatePeople (20091008011604)
+Migrating to CreateAddresses (20091008011719)
+Migrating to AddFk (20091008011804)
+Migrating to AddNameToPerson (20091008013419)
+Migrating to CreateIdentities (20091008014027)
+Migrating to AddEmployee (20091008015317)
+Migrating to CreateCategories (20091008020133)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "parent_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091008020133')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("addresses")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("categories")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("documents")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("identities")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("people")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("tags")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_tags_on_name')[0m
+  [4;36;1mCategory Create (0.5ms)[0m   [0;1mINSERT INTO "categories" ("name", "updated_at", "parent_id", "created_at") VALUES('Programming', '2009-10-08 02:02:04', NULL, '2009-10-08 02:02:04')[0m
+  [4;35;1mCategory Create (0.7ms)[0m   [0mINSERT INTO "categories" ("name", "updated_at", "parent_id", "created_at") VALUES('Ruby', '2009-10-08 02:02:12', 1, '2009-10-08 02:02:12')[0m
+  [4;36;1mCategory Create (0.6ms)[0m   [0;1mINSERT INTO "categories" ("name", "updated_at", "parent_id", "created_at") VALUES('Java', '2009-10-08 02:02:21', 1, '2009-10-08 02:02:21')[0m
+  [4;35;1mCategory Load (406.2ms)[0m   [0mSELECT * FROM "categories" WHERE ("categories".parent_id = 1) ORDER BY name[0m
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" WHERE ("categories"."id" = 1) [0m

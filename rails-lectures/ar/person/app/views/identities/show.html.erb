@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @identity.name %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @identity.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_identity_path(@identity) %> |
+<%= link_to 'Back', identities_path %>

@@ -1,12 +1,11 @@
 # == Schema Information
 # Schema version: 20091008011719
 #
-# Table name: documents
+# Table name: people
 #
 #  id         :integer         not null, primary key
-#  title      :string(255)
-#  body       :text
-#  name       :string(255)
+#  fname      :string(255)
+#  lname      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -14,11 +13,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  body: MyText
-  name: MyString
+  fname: MyString
+  lname: MyString
 
 two:
-  title: MyString
-  body: MyText
-  name: MyString
+  fname: MyString
+  lname: MyString

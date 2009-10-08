@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091007002151) do
+ActiveRecord::Schema.define(:version => 20091008020133) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "documents", :force => true do |t|
     t.string   "title"
@@ -19,11 +35,29 @@ ActiveRecord::Schema.define(:version => 20091007002151) do
     t.datetime "updated_at"
   end
 
+  create_table "identities", :force => true do |t|
+    t.string   "name"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+    t.integer  "payroll_id"
+  end
+
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
 end

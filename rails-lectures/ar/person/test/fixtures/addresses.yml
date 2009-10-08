@@ -1,12 +1,13 @@
 # == Schema Information
 # Schema version: 20091008011719
 #
-# Table name: documents
+# Table name: addresses
 #
 #  id         :integer         not null, primary key
-#  title      :string(255)
-#  body       :text
-#  name       :string(255)
+#  person_id  :integer
+#  city       :string(255)
+#  state      :string(255)
+#  zip        :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -14,11 +15,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  body: MyText
-  name: MyString
+  person_id: 1
+  city: MyString
+  state: MyString
+  zip: 1
 
 two:
-  title: MyString
-  body: MyText
-  name: MyString
+  person_id: 1
+  city: MyString
+  state: MyString
+  zip: 1
