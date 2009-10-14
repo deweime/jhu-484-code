@@ -1,0 +1,55 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateDocuments (20091014003917)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "documents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091014003917')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("documents")[0m
+
+
+Processing DocumentsController#show (for 127.0.0.1 at 2009-10-13 20:43:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mDocument Load (0.1ms)[0m   [0;1mSELECT * FROM "documents" WHERE ("documents"."id" = 1) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Document with ID=1):
+  app/controllers/documents_controller.rb:16:in `show'
+
+Rendered rescues/_trace (656.2ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing AdminController#history (for 127.0.0.1 at 2009-10-13 21:58:39) [GET]
+  Parameters: {"month"=>"09", "day"=>"30", "year"=>"2009"}
+
+ActionView::MissingTemplate (Missing template admin/history.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AdminController#history (for 127.0.0.1 at 2009-10-13 21:59:49) [GET]
+  Parameters: {"month"=>"09", "day"=>"30", "year"=>"2009"}
+
+ActionView::MissingTemplate (Missing template admin/history.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
