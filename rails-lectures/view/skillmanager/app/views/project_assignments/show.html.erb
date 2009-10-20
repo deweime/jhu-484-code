@@ -1,0 +1,23 @@
+<p>
+  <b>Project:</b>
+  <%=h @project_assignment.project_id %>
+</p>
+
+<p>
+  <b>Engineer:</b>
+  <%=h @project_assignment.engineer_id %>
+</p>
+
+<p>
+  <b>Sdate:</b>
+  <%=h @project_assignment.sdate %>
+</p>
+
+<p>
+  <b>Edate:</b>
+  <%=h @project_assignment.edate %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_assignment_path(@project_assignment) %> |
+<%= link_to 'Back', project_assignments_path %>

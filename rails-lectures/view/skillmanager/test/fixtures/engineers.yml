@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fname: MyString
+  lname: MyString
+  years_of_experience: 1
+
+two:
+  fname: MyString
+  lname: MyString
+  years_of_experience: 1

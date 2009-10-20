@@ -1,0 +1,18 @@
+<p>
+  <b>Fname:</b>
+  <%=h @engineer.fname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%=h @engineer.lname %>
+</p>
+
+<p>
+  <b>Years of experience:</b>
+  <%=h @engineer.years_of_experience %>
+</p>
+
+
+<%= link_to 'Edit', edit_engineer_path(@engineer) %> |
+<%= link_to 'Back', engineers_path %>

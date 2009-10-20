@@ -1,0 +1,528 @@
+  [4;36;1mSQL (15.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEngineers (20091020163104)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "engineers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "years_of_experience" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163104')[0m
+Migrating to CreateProjects (20091020163119)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163119')[0m
+Migrating to CreateProjectAssignments (20091020163131)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "project_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "engineer_id" integer, "sdate" date, "edate" date, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163131')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("engineers")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("project_assignments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("projects")[0m
+  [4;36;1mProject Create (0.8ms)[0m   [0;1mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Windows', '2009-10-20 16:37:46', 'Ancient Operating Ssytem', '2009-10-20 16:37:46')[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Linux', '2009-10-20 16:37:46', 'A Good Choice', '2009-10-20 16:37:46')[0m
+  [4;36;1mProject Create (0.2ms)[0m   [0;1mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Mac OS/X', '2009-10-20 16:37:46', 'Works Best', '2009-10-20 16:37:46')[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 12:49:56) [GET]
+
+ActionController::RoutingError (No route matches "/server/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 12:50:11) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 63ms (View: 57, DB: 0) | 200 OK [http://localhost/engineers/new/]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 13:04:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"lname"=>"Weimer", "fname"=>"Dan", "years_of_experience"=>"20"}}
+  [4;36;1mEngineer Create (3.5ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 17:04:40', 'Weimer', 'Dan', 20, '2009-10-20 17:04:40')[0m
+Redirected to http://localhost:3000/engineers/1
+Completed in 20ms (DB: 4) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 13:04:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (1.6ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 20ms (View: 11, DB: 2) | 200 OK [http://localhost/engineers/1]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 13:16:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEngineer Load (0.6ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/engineers/1]
+
+
+Processing EngineersController#edit (for 127.0.0.1 at 2009-10-20 13:16:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/edit
+Completed in 214ms (View: 207, DB: 0) | 200 OK [http://localhost/engineers/1/edit]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 13:16:16) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/1]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 13:16:20) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.inject) on line #23 of app/views/engineers/new.html.erb:
+20: 	<legend>Add a Project Assignment</legend>
+21: 	<%= error_messages_for :project%>
+22: 	<% fields_for :project do |project| %>
+23: 	   Name: <%= project.select :name, @all_project_names %>
+24: 	<% end %>
+25: 
+26: 	<%= error_messages_for :project_assignments %>
+
+    app/views/engineers/new.html.erb:23
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:29:in `new'
+
+Rendered rescues/_trace (52.9ms)
+Rendered rescues/_request_and_response (62.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 13:19:57) [GET]
+  [4;35;1mProject Load (0.9ms)[0m   [0mSELECT * FROM "projects" ORDER BY name[0m
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 104ms (View: 92, DB: 1) | 200 OK [http://localhost/engineers/new/]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:00:12) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.new_record?) on line #30 of app/views/engineers/new.html.erb:
+27: 	     <%= child_form.label :edate %>
+28: 		 <%= child_form.text_field :edate %>
+29: 
+30: 	    <% unless child_form.object.new_record? %>
+31: 	      <%= child_form.check_box '_delete' %>
+32: 	      <%= child_form.label '_delete', 'Remove' %>
+33: 	    <% end %>
+
+    app/views/engineers/new.html.erb:30
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:33:in `new'
+
+Rendered rescues/_trace (108.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:03:49) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.new_record?) on line #30 of app/views/engineers/new.html.erb:
+27: 	     <%= child_form.label :edate %>
+28: 		 <%= child_form.text_field :edate %>
+29: 
+30: 	    <% unless child_form.object.new_record? %>
+31: 	      <%= child_form.check_box '_delete' %>
+32: 	      <%= child_form.label '_delete', 'Remove' %>
+33: 	    <% end %>
+
+    app/views/engineers/new.html.erb:30
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:33:in `new'
+
+Rendered rescues/_trace (105.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:04:52) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 24ms (View: 18, DB: 0) | 200 OK [http://localhost/engineers/new/]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:06:19) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/engineers/new/]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 14:06:25) [GET]
+  [4;36;1mEngineer Load (0.9ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers/]
+
+
+Processing EngineersController#edit (for 127.0.0.1 at 2009-10-20 14:06:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/engineers/1/edit]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 14:06:32) [GET]
+  [4;36;1mEngineer Load (0.5ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:11:01) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 60ms (View: 54, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 14:23:11) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 34ms (View: 23, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-10-20 14:47:27) [GET]
+
+SyntaxError (/Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/models/project.rb:3: syntax error, unexpected ':', expecting kEND
+  has_many :project_assignments :dependent => :destroy
+                                 ^):
+  app/controllers/projects_controller.rb:5:in `index'
+
+Rendered rescues/_trace (38.2ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#new (for 127.0.0.1 at 2009-10-20 14:49:29) [GET]
+Rendering template within layouts/projects
+Rendering projects/new
+Completed in 41ms (View: 28, DB: 0) | 200 OK [http://localhost/projects/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:02:54) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2009", "edate"=>"1-2-2009"}}, "lname"=>"F", "fname"=>"Fred", "years_of_experience"=>"1"}}
+  [4;36;1mEngineer Create (1.7ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:02:54', 'F', 'Fred', 1, '2009-10-20 19:02:54')[0m
+  [4;35;1mProjectAssignment Create (1.3ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 19:02:54', 2, '2009-01-01', '2009-02-01', '2009-10-20 19:02:54')[0m
+Redirected to http://localhost:3000/engineers/2
+Completed in 81ms (DB: 3) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 15:02:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 2) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 24ms (View: 18, DB: 0) | 200 OK [http://localhost/engineers/2]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 15:04:11) [GET]
+  [4;35;1mEngineer Load (0.6ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:04:14) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+Completed in 26ms (View: 19, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:04:28) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2001", "edate"=>"1-2-2003"}}, "lname"=>"Weimer", "fname"=>"Bill", "years_of_experience"=>"19"}}
+  [4;36;1mEngineer Create (0.3ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:04:28', 'Weimer', 'Bill', 19, '2009-10-20 19:04:28')[0m
+
+NameError (undefined local variable or method `params' for #<ProjectAssignment:0x2cd8d98>):
+  app/models/project_assignment.rb:7:in `before_save'
+  app/controllers/engineers_controller.rb:50:in `create'
+  app/controllers/engineers_controller.rb:49:in `create'
+
+Rendered rescues/_trace (62.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:04:47) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2001", "edate"=>"1-2-2003"}}, "lname"=>"Weimer", "fname"=>"Bill", "years_of_experience"=>"19"}}
+  [4;35;1mEngineer Create (0.4ms)[0m   [0mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:04:47', 'Weimer', 'Bill', 19, '2009-10-20 19:04:47')[0m
+
+NameError (undefined local variable or method `param' for #<ProjectAssignment:0x2cf56a0>):
+  app/models/project_assignment.rb:7:in `before_save'
+  app/controllers/engineers_controller.rb:50:in `create'
+  app/controllers/engineers_controller.rb:49:in `create'
+
+Rendered rescues/_trace (138.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:06:43) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2001", "edate"=>"1-2-2003"}}, "lname"=>"Weimer", "fname"=>"Bill", "years_of_experience"=>"19"}}
+  [4;36;1mEngineer Create (0.8ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:06:43', 'Weimer', 'Bill', 19, '2009-10-20 19:06:43')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 19:06:43', 3, '2001-01-01', '2003-02-01', '2009-10-20 19:06:43')[0m
+Redirected to http://localhost:3000/engineers/3
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 15:06:43) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/3]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:07:57) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2001", "edate"=>"1-2-2003"}}, "lname"=>"Weimer", "fname"=>"Bill", "years_of_experience"=>"19"}}
+  [4;36;1mEngineer Create (0.3ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:07:57', 'Weimer', 'Bill', 19, '2009-10-20 19:07:57')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 19:07:57', 4, '2001-01-01', '2003-02-01', '2009-10-20 19:07:57')[0m
+Redirected to http://localhost:3000/engineers/4
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 15:07:57) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 15:33:26) [GET]
+  [4;36;1mEngineer Load (1.0ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:33:29) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (undefined local variable or method `pa_form' for #<ActionView::Base:0x2e6f8a0>) on line #30 of app/views/engineers/new.html.erb:
+27: 	     <%= pa.label :edate %>
+28: 		 <%= pa.text_field :edate %>
+29: 
+30: 	    <% unless pa_form.object.new_record? %>
+31: 	      <%= pa.check_box '_delete' %>
+32: 	      <%= pa.label '_delete', 'Remove' %>
+33: 	    <% end %>
+
+    app/views/engineers/new.html.erb:30
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:33:in `new'
+
+Rendered rescues/_trace (53.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:33:50) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 31ms (View: 25, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:35:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2009", "edate"=>"1-3102009"}}, "project"=>{"name"=>"Linux"}, "lname"=>"Weimer", "fname"=>"Cathy", "years_of_experience"=>"12"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: project):
+  app/controllers/engineers_controller.rb:47:in `new'
+  app/controllers/engineers_controller.rb:47:in `create'
+
+Rendered rescues/_trace (34.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:36:09) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2009", "edate"=>"1-3102009"}}, "project"=>{"name"=>"Linux"}, "lname"=>"Weimer", "fname"=>"Cathy", "years_of_experience"=>"12"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: project):
+  app/controllers/engineers_controller.rb:47:in `new'
+  app/controllers/engineers_controller.rb:47:in `create'
+
+Rendered rescues/_trace (93.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:43:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"sdate"=>"1-1-2009", "edate"=>"1-3102009"}}, "project"=>{"name"=>"Linux"}, "lname"=>"Weimer", "fname"=>"Cathy", "years_of_experience"=>"12"}}
+
+ActiveRecord::UnknownAttributeError (unknown attribute: project):
+  app/controllers/engineers_controller.rb:47:in `new'
+  app/controllers/engineers_controller.rb:47:in `create'
+
+Rendered rescues/_trace (34.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:43:58) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.label) on line #36 of app/views/engineers/new.html.erb:
+33: 	    <% end %>
+34: 	
+35: 		
+36: 	       <%= p.label :name, "Project Name" %>
+37:            <%= p.collection_select(:name, Project.all, :name, :name) %>
+38: 
+39: 
+
+    app/views/engineers/new.html.erb:36
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:33:in `new'
+
+Rendered rescues/_trace (54.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:44:28) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;36;1mProject Load (0.5ms)[0m   [0;1mSELECT * FROM "projects" [0m
+
+ActionView::TemplateError (undefined method `name' for #<ProjectAssignment:0x2cbd7a0>) on line #37 of app/views/engineers/new.html.erb:
+34: 	
+35: 		
+36: 	    <%= pa.label :name, "Project Name" %>
+37:         <%= pa.collection_select(:name, Project.all, :name, :name) %>
+38: 
+39: 
+40: 	 <% end %>
+
+    app/views/engineers/new.html.erb:37
+    app/views/engineers/new.html.erb:22
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:33:in `new'
+
+Rendered rescues/_trace (55.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 15:45:04) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 81ms (View: 75, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 15:45:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Linux", "sdate"=>"1-1-2001", "edate"=>"1-1-2010"}}, "lname"=>"X", "fname"=>"Dan", "years_of_experience"=>"34"}}
+  [4;36;1mEngineer Create (0.8ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 19:45:30', 'X', 'Dan', 34, '2009-10-20 19:45:30')[0m
+  [4;35;1mEngineer Load (2.5ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 5) [0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 19:45:30', 5, '2001-01-01', '2010-01-01', '2009-10-20 19:45:30')[0m
+Redirected to http://localhost:3000/engineers/5
+Completed in 24ms (DB: 4) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 15:45:30) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 5) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/5]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 16:59:34) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;36;1mProject Load (0.7ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Completed in 29ms (View: 22, DB: 1) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 16:59:37) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 33ms (View: 27, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 16:59:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Mac OS/X", "sdate"=>"1-1-01", "edate"=>"1-1-03"}}, "lname"=>"y", "fname"=>"xx", "years_of_experience"=>"45"}}
+  [4;36;1mEngineer Create (0.8ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 20:59:53', 'y', 'xx', 45, '2009-10-20 20:59:53')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 6) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'Mac OS/X') LIMIT 1[0m
+  [4;35;1mProjectAssignment Create (0.5ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 20:59:53', 6, '0001-01-01', '0001-01-03', '2009-10-20 20:59:53')[0m
+Redirected to http://localhost:3000/engineers/6
+Completed in 27ms (DB: 2) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 16:59:53) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mEngineer Load (0.5ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 6) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/engineers/6]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 17:00:53) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 17:01:05) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"Z9MRQYwIV/VHoYN6UBBpt92/7s52/qIcpcds8PKf6tI=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Windows", "sdate"=>"1-1-2001", "edate"=>"1-1-2001"}}, "lname"=>"2", "fname"=>"1", "years_of_experience"=>"324234"}}
+  [4;36;1mEngineer Create (0.7ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 21:01:05', '2', '1', 324234, '2009-10-20 21:01:05')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 7) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'Windows') LIMIT 1[0m
+  [4;35;1mProjectAssignment Create (0.1ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 21:01:05', 7, '2001-01-01', '2001-01-01', '2009-10-20 21:01:05')[0m
+Redirected to http://localhost:3000/engineers/7
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 17:01:05) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 7) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/7]
