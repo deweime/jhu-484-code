@@ -17,7 +17,7 @@ class EngineersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @engineer }
+      format.xml { render(:layout => false, :template => 'engineers/show.xml.builder') }
     end
   end
 
@@ -25,10 +25,6 @@ class EngineersController < ApplicationController
   # GET /engineers/new.xml
   def new
     @engineer = Engineer.new
-    
- #   @project_assignment = ProjectAssignment.new
- #   @project = Project.new
- #   @all_project_names = Project.find(:all, :order => "name").map { |p| [p.name, p.name] }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +41,10 @@ class EngineersController < ApplicationController
   # POST /engineers.xml
   def create
     @engineer = Engineer.new(params[:engineer])
+    @engineer.project_assignments.each do |pa|
+      puts "Adding project to pa #{pa.name}"
+      pa.project = Project.find_by_name(pa.name)
+    end
 
     respond_to do |format|
       if @engineer.save

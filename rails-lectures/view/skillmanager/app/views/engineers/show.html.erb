@@ -1,3 +1,5 @@
+<h3><%= page_title %></h3>
+
 <p>
   <b>Fname:</b>
   <%=h @engineer.fname %>
@@ -12,6 +14,23 @@
   <b>Years of experience:</b>
   <%=h @engineer.years_of_experience %>
 </p>
+
+<table>
+<% @engineer.project_assignments.each do |pa| %>
+  <tr>
+	<td><%=h pa.sdate %></td>
+    <td><%=h pa.edate %></td>
+    <td><%=h pa.project.name %></td>
+    <td><%=h pa.project.description %></td>
+  </tr>
+<% end %>
+</table>
+
+<table>
+<%= render(:partial => "shared/project_assignment", 
+      :collection => @engineer.project_assignments)%>
+</table>
+
 
 
 <%= link_to 'Edit', edit_engineer_path(@engineer) %> |

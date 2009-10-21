@@ -526,3 +526,1150 @@ Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 17:01:05) [GET]
 Rendering template within layouts/engineers
 Rendering engineers/show
 Completed in 10ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/7]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 19:28:42) [GET]
+
+ActionController::RoutingError (No route matches "/engineer/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 19:28:48) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Completed in 79ms (View: 65, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 19:52:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Windows", "sdate"=>"1-1-1980", "edate"=>"1-1-2010"}}, "lname"=>"Gates", "fname"=>"Bill", "years_of_experience"=>"50"}}
+  [4;35;1mEngineer Create (0.5ms)[0m   [0mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 23:52:33', 'Gates', 'Bill', 50, '2009-10-20 23:52:33')[0m
+  [4;36;1mEngineer Load (0.3ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 8) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'Windows') LIMIT 1[0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 23:52:33', 8, '1980-01-01', '2010-01-01', '2009-10-20 23:52:33')[0m
+Redirected to http://localhost:3000/engineers/8
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 19:52:33) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 8) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/engineers/8]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:52:36) [GET]
+  [4;36;1mEngineer Load (1.0ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 37ms (View: 30, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:52:50) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"3"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 3) [0m
+  [4;35;1mProjectAssignment Destroy (0.2ms)[0m   [0mDELETE FROM "project_assignments" WHERE "id" = 2[0m
+  [4;36;1mEngineer Destroy (0.1ms)[0m   [0;1mDELETE FROM "engineers" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/engineers
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/engineers/3]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:52:50) [GET]
+  [4;35;1mEngineer Load (0.8ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:52:53) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"4"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+  [4;35;1mProjectAssignment Load (0.3ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 4) [0m
+  [4;36;1mProjectAssignment Destroy (0.3ms)[0m   [0;1mDELETE FROM "project_assignments" WHERE "id" = 3[0m
+  [4;35;1mEngineer Destroy (0.1ms)[0m   [0mDELETE FROM "engineers" WHERE "id" = 4[0m
+Redirected to http://localhost:3000/engineers
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/engineers/4]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:52:53) [GET]
+  [4;36;1mEngineer Load (0.8ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 26ms (View: 20, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:52:58) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+  [4;36;1mProjectAssignment Load (0.1ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+  [4;35;1mEngineer Destroy (0.3ms)[0m   [0mDELETE FROM "engineers" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/engineers
+Completed in 12ms (DB: 1) | 302 Found [http://localhost/engineers/1]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:52:58) [GET]
+  [4;36;1mEngineer Load (0.7ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 23ms (View: 17, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:53:02) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"7"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 7) [0m
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 7) [0m
+  [4;35;1mProjectAssignment Destroy (0.6ms)[0m   [0mDELETE FROM "project_assignments" WHERE "id" = 6[0m
+  [4;36;1mEngineer Destroy (0.1ms)[0m   [0;1mDELETE FROM "engineers" WHERE "id" = 7[0m
+Redirected to http://localhost:3000/engineers
+Completed in 35ms (DB: 1) | 302 Found [http://localhost/engineers/7]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:53:02) [GET]
+  [4;35;1mEngineer Load (0.7ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:55:47) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"2"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 2) [0m
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 2) [0m
+  [4;36;1mProjectAssignment Destroy (0.3ms)[0m   [0;1mDELETE FROM "project_assignments" WHERE "id" = 1[0m
+  [4;35;1mEngineer Destroy (0.1ms)[0m   [0mDELETE FROM "engineers" WHERE "id" = 2[0m
+Redirected to http://localhost:3000/engineers
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/engineers/2]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:55:48) [GET]
+  [4;36;1mEngineer Load (0.7ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 17ms (View: 12, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:55:50) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"5"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 5) [0m
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 5) [0m
+  [4;35;1mProjectAssignment Destroy (0.3ms)[0m   [0mDELETE FROM "project_assignments" WHERE "id" = 4[0m
+  [4;36;1mEngineer Destroy (0.1ms)[0m   [0;1mDELETE FROM "engineers" WHERE "id" = 5[0m
+Redirected to http://localhost:3000/engineers
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/engineers/5]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:55:50) [GET]
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#destroy (for 127.0.0.1 at 2009-10-20 19:55:53) [DELETE]
+  Parameters: {"authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "id"=>"6"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 6) [0m
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 6) [0m
+  [4;36;1mProjectAssignment Destroy (0.2ms)[0m   [0;1mDELETE FROM "project_assignments" WHERE "id" = 5[0m
+  [4;35;1mEngineer Destroy (0.1ms)[0m   [0mDELETE FROM "engineers" WHERE "id" = 6[0m
+Redirected to http://localhost:3000/engineers
+Completed in 14ms (DB: 1) | 302 Found [http://localhost/engineers/6]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:55:53) [GET]
+  [4;36;1mEngineer Load (0.4ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 19:55:55) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 19:56:14) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Linux", "sdate"=>"1-1-1980", "edate"=>"1-1-2010"}}, "lname"=>"T", "fname"=>"Linus", "years_of_experience"=>"30"}}
+  [4;36;1mEngineer Create (0.4ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 23:56:14', 'T', 'Linus', 30, '2009-10-20 23:56:14')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 9) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'Linux') LIMIT 1[0m
+  [4;35;1mProjectAssignment Create (0.1ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 23:56:14', 9, '1980-01-01', '2010-01-01', '2009-10-20 23:56:14')[0m
+Redirected to http://localhost:3000/engineers/9
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 19:56:14) [GET]
+  Parameters: {"id"=>"9"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 9) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/9]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:56:15) [GET]
+  [4;35;1mEngineer Load (0.6ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 14ms (View: 9, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 19:56:17) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Completed in 82ms (View: 76, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 19:56:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Mac OS/X", "sdate"=>"1-1-1970", "edate"=>"1-1-2010"}}, "lname"=>"Jobs", "fname"=>"Steve", "years_of_experience"=>"40"}}
+  [4;35;1mEngineer Create (0.3ms)[0m   [0mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-20 23:56:32', 'Jobs', 'Steve', 40, '2009-10-20 23:56:32')[0m
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 10) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'Mac OS/X') LIMIT 1[0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-20 23:56:32', 10, '1970-01-01', '2010-01-01', '2009-10-20 23:56:32')[0m
+Redirected to http://localhost:3000/engineers/10
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 19:56:32) [GET]
+  Parameters: {"id"=>"10"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 10) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/10]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:56:34) [GET]
+  [4;36;1mEngineer Load (0.6ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 19:56:39) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 8) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/engineers/8]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 19:56:40) [GET]
+  [4;36;1mEngineer Load (0.6ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 19:58:06) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 8) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 8) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #18 of app/views/engineers/show.html.erb:
+15: 
+16: <% @engineer.project_assignments.each do |pa| %>
+17:   <tr>
+18:     <td><%=h pa.project.name %></td>
+19:     <td><%=h pa.project.description %></td>
+20:     <td><%=h pa.sdate %></td>
+21:     <td><%=h pa.edate %></td>
+
+    app/views/engineers/show.html.erb:18
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEngineers (20091020163104)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "engineers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "years_of_experience" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163104')[0m
+Migrating to CreateProjects (20091020163119)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163119')[0m
+Migrating to CreateProjectAssignments (20091020163131)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "project_assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "engineer_id" integer, "sdate" date, "edate" date, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091020163131')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("engineers")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("project_assignments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("projects")[0m
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 20:01:57) [GET]
+  [4;36;1mEngineer Load (0.4ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 37ms (View: 24, DB: 0) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:01:58) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 29ms (View: 23, DB: 0) | 200 OK [http://localhost/engineers/new]
+  [4;36;1mProject Load (0.1ms)[0m   [0;1mSELECT "projects".id FROM "projects" WHERE ("projects"."name" = 'Windows') LIMIT 1[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Windows', '2009-10-21 00:02:10', 'Ancient Operating Ssytem', '2009-10-21 00:02:10')[0m
+  [4;36;1mProject Load (0.1ms)[0m   [0;1mSELECT "projects".id FROM "projects" WHERE ("projects"."name" = 'Linux') LIMIT 1[0m
+  [4;35;1mProject Create (0.2ms)[0m   [0mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Linux', '2009-10-21 00:02:10', 'A Good Choice', '2009-10-21 00:02:10')[0m
+  [4;36;1mProject Load (0.1ms)[0m   [0;1mSELECT "projects".id FROM "projects" WHERE ("projects"."name" = 'Mac OS/X') LIMIT 1[0m
+  [4;35;1mProject Create (0.2ms)[0m   [0mINSERT INTO "projects" ("name", "updated_at", "description", "created_at") VALUES('Mac OS/X', '2009-10-21 00:02:10', 'Works Best', '2009-10-21 00:02:10')[0m
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:02:17) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 20:02:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Windows", "sdate"=>"1-1-1980", "edate"=>"1-1-2010"}}, "lname"=>"Gates", "fname"=>"Bill", "years_of_experience"=>"30"}}
+  [4;35;1mEngineer Create (0.7ms)[0m   [0mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-21 00:02:33', 'Gates', 'Bill', 30, '2009-10-21 00:02:33')[0m
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'Windows') LIMIT 1[0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-21 00:02:33', 1, '1980-01-01', '2010-01-01', '2009-10-21 00:02:33')[0m
+Redirected to http://localhost:3000/engineers/1
+Completed in 25ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:02:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.3ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #18 of app/views/engineers/show.html.erb:
+15: 
+16: <% @engineer.project_assignments.each do |pa| %>
+17:   <tr>
+18:     <td><%=h pa.project.name %></td>
+19:     <td><%=h pa.project.description %></td>
+20:     <td><%=h pa.sdate %></td>
+21:     <td><%=h pa.edate %></td>
+
+    app/views/engineers/show.html.erb:18
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (100.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:03:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22: <% end %>
+23: 
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (101.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:12:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_assignments" ON "projects".id = "project_assignments".project_id WHERE (("project_assignments".engineer_id = 1)) [0m
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #26 of app/views/engineers/show.html.erb:
+23:   <tr>
+24: 	<td><%=h pa.sdate %></td>
+25:     <td><%=h pa.edate %></td>
+26:     <td><%=h pa.project.name %></td>
+27:     <td><%=h pa.project.description %></td>
+28: <% end %>
+29: 
+
+    app/views/engineers/show.html.erb:26
+    app/views/engineers/show.html.erb:22
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (100.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:12:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_assignments" ON "projects".id = "project_assignments".project_id WHERE (("project_assignments".engineer_id = 1)) [0m
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #26 of app/views/engineers/show.html.erb:
+23:   <tr>
+24: 	<td><%=h pa.sdate %></td>
+25:     <td><%=h pa.edate %></td>
+26:     <td><%=h pa.project.name %></td>
+27:     <td><%=h pa.project.description %></td>
+28: <% end %>
+29: 
+
+    app/views/engineers/show.html.erb:26
+    app/views/engineers/show.html.erb:22
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (45.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:12:21) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 80ms (View: 16, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 20:12:24) [GET]
+  [4;36;1mEngineer Load (0.5ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:12:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT "projects".* FROM "projects" INNER JOIN "project_assignments" ON "projects".id = "project_assignments".project_id WHERE (("project_assignments".engineer_id = 1)) [0m
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #26 of app/views/engineers/show.html.erb:
+23:   <tr>
+24: 	<td><%=h pa.sdate %></td>
+25:     <td><%=h pa.edate %></td>
+26:     <td><%=h pa.project.name %></td>
+27:     <td><%=h pa.project.description %></td>
+28: <% end %>
+29: 
+
+    app/views/engineers/show.html.erb:26
+    app/views/engineers/show.html.erb:22
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (101.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:15:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT "projects".* FROM "projects" INNER JOIN "project_assignments" ON "projects".id = "project_assignments".project_id WHERE (("project_assignments".engineer_id = 1)) [0m
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+Completed in 23ms (View: 16, DB: 1) | 200 OK [http://localhost/engineers/1]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:27:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.3ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22:   </tr>
+23: <% end %>
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (99.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-10-20 20:31:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://localhost/projects/1]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-10-20 20:31:15) [GET]
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/projects
+Rendering projects/index
+Completed in 21ms (View: 16, DB: 1) | 200 OK [http://localhost/projects/]
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-10-20 20:31:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/projects
+Rendering projects/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/projects/1]
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 1) [0m
+  [4;35;1mProjectAssignment Load (0.3ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 1) [0m
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-10-20 20:42:01) [GET]
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" [0m
+Rendering template within layouts/projects
+Rendering projects/index
+Completed in 73ms (View: 68, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 20:42:06) [GET]
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:42:16) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (/Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/models/project_assignment.rb:17: syntax error, unexpected kDO, expecting kEND
+/Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/models/project_assignment.rb:24: syntax error, unexpected kEND, expecting $end) on line #3 of app/views/engineers/new.html.erb:
+1: <h1>New engineer</h1>
+2: 
+3: <% form_for(setup_engineer(@engineer)) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/helpers/application_helper.rb:5:in `setup_engineer'
+    app/helpers/application_helper.rb:4:in `setup_engineer'
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:29:in `new'
+
+Rendered rescues/_trace (107.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 20:43:47) [GET]
+  [4;36;1mEngineer Load (0.4ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 37ms (View: 24, DB: 0) | 200 OK [http://localhost/engineers/]
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-10-20 20:43:51) [GET]
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/projects
+Rendering projects/index
+Completed in 30ms (View: 25, DB: 1) | 200 OK [http://localhost/projects/]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 20:43:56) [GET]
+  [4;36;1mEngineer Load (0.4ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/engineers/]
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:43:58) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+
+ActionView::TemplateError (/Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/models/project_assignment.rb:17: syntax error, unexpected kDO, expecting kEND
+/Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/models/project_assignment.rb:24: syntax error, unexpected kEND, expecting $end) on line #3 of app/views/engineers/new.html.erb:
+1: <h1>New engineer</h1>
+2: 
+3: <% form_for(setup_engineer(@engineer)) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/helpers/application_helper.rb:5:in `setup_engineer'
+    app/helpers/application_helper.rb:4:in `setup_engineer'
+    app/views/engineers/new.html.erb:3
+    app/controllers/engineers_controller.rb:29:in `new'
+
+Rendered rescues/_trace (56.9ms)
+Rendered rescues/_request_and_response (52.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 20:44:32) [GET]
+Rendering template within layouts/engineers
+Rendering engineers/new
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" [0m
+Completed in 24ms (View: 17, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 20:44:51) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Mac OS/X", "sdate"=>"1-1-1970", "edate"=>"1-1-2010"}}, "lname"=>"Weimer", "fname"=>"Dan", "years_of_experience"=>"10"}}
+  [4;36;1mEngineer Create (0.4ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-21 00:44:51', 'Weimer', 'Dan', 10, '2009-10-21 00:44:51')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 2) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'Mac OS/X') LIMIT 1[0m
+  [4;35;1mProjectAssignment Create (0.1ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-21 00:44:51', 2, '1970-01-01', '2010-01-01', '2009-10-21 00:44:51')[0m
+Redirected to http://localhost:3000/engineers/2
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:44:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 2) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.3ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 2) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22:   </tr>
+23: <% end %>
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (95.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 20:45:57) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Linux", "sdate"=>"1-1-1970", "edate"=>"1-1-2010"}}, "lname"=>"Weimer", "fname"=>"Dan", "years_of_experience"=>"1"}}
+  [4;36;1mEngineer Create (0.4ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-21 00:45:57', 'Weimer', 'Dan', 1, '2009-10-21 00:45:57')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'Linux') LIMIT 1[0m
+  [4;35;1mProjectAssignment Create (0.1ms)[0m   [0mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(NULL, '2009-10-21 00:45:57', 3, '1970-01-01', '2010-01-01', '2009-10-21 00:45:57')[0m
+Redirected to http://localhost:3000/engineers/3
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:45:57) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 3) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22:   </tr>
+23: <% end %>
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (100.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:50:52) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 3) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22:   </tr>
+23: <% end %>
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (101.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:50:56) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 3) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 3) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #20 of app/views/engineers/show.html.erb:
+17:   <tr>
+18: 	<td><%=h pa.sdate %></td>
+19:     <td><%=h pa.edate %></td>
+20:     <td><%=h pa.project.name %></td>
+21:     <td><%=h pa.project.description %></td>
+22:   </tr>
+23: <% end %>
+
+    app/views/engineers/show.html.erb:20
+    app/views/engineers/show.html.erb:16
+    app/controllers/engineers_controller.rb:18:in `show'
+
+Rendered rescues/_trace (43.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 20:51:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Linux", "sdate"=>"1-1-1970", "edate"=>"1-1-2010"}}, "lname"=>"Weimer", "fname"=>"Dan", "years_of_experience"=>"1"}}
+  [4;36;1mProject Load (0.1ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Project with ID=Linux):
+  app/controllers/engineers_controller.rb:46:in `create'
+  app/controllers/engineers_controller.rb:44:in `create'
+
+Rendered rescues/_trace (35.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#create (for 127.0.0.1 at 2009-10-20 20:51:50) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"YxfkpWJG1Y0FBmKlAcMxj5W0viXVgqos3KWVWkeD+VA=", "engineer"=>{"project_assignments_attributes"=>{"0"=>{"name"=>"Linux", "sdate"=>"1-1-1970", "edate"=>"1-1-2010"}}, "lname"=>"Weimer", "fname"=>"Dan", "years_of_experience"=>"1"}}
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'Linux') LIMIT 1[0m
+  [4;36;1mEngineer Create (0.3ms)[0m   [0;1mINSERT INTO "engineers" ("updated_at", "lname", "fname", "years_of_experience", "created_at") VALUES('2009-10-21 00:51:50', 'Weimer', 'Dan', 1, '2009-10-21 00:51:50')[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+  [4;36;1mProjectAssignment Create (0.1ms)[0m   [0;1mINSERT INTO "project_assignments" ("project_id", "updated_at", "engineer_id", "sdate", "edate", "created_at") VALUES(2, '2009-10-21 00:51:50', 4, '1970-01-01', '2010-01-01', '2009-10-21 00:51:50')[0m
+Redirected to http://localhost:3000/engineers/4
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:51:50) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.2ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 4) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Completed in 18ms (View: 12, DB: 1) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 20:59:03) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.3ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 4) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendered shared/_project_assignment (0.7ms)
+Completed in 89ms (View: 82, DB: 1) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 21:03:28) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/engineers
+Rendering engineers/show
+  [4;36;1mProjectAssignment Load (0.3ms)[0m   [0;1mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 4) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendered shared/_project_assignment (0.2ms)
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#show to xml (for 127.0.0.1 at 2009-10-20 21:08:01) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering engineers/show.xml.builder
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/engineers/4.xml]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 21:11:27) [GET]
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/engineers
+Rendering engineers/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 21:22:44) [GET]
+  [4;36;1mEngineer Load (0.5ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 38ms (View: 32, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 21:22:47) [GET]
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-20 21:22:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mEngineer Load (0.2ms)[0m   [0;1mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering engineers/show
+  [4;35;1mProjectAssignment Load (0.2ms)[0m   [0mSELECT * FROM "project_assignments" WHERE ("project_assignments".engineer_id = 4) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 2) [0m
+Rendered shared/_project_assignment (0.2ms)
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 21ms (View: 15, DB: 1) | 200 OK [http://localhost/engineers/4]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProjectsController#index (for 127.0.0.1 at 2009-10-20 21:22:51) [GET]
+  [4;35;1mProject Load (0.7ms)[0m   [0mSELECT * FROM "projects" [0m
+Rendering template within layouts/application
+Rendering projects/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 19ms (View: 14, DB: 1) | 200 OK [http://localhost/projects]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:51) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:51) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:51) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:51) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ProjectsController#show (for 127.0.0.1 at 2009-10-20 21:22:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering projects/show
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/projects/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 21:22:54) [GET]
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 64ms (View: 58, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:54) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-20 21:22:56) [GET]
+  [4;36;1mEngineer Load (0.5ms)[0m   [0;1mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:22:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing EngineersController#new (for 127.0.0.1 at 2009-10-20 21:23:02) [GET]
+Rendering template within layouts/application
+Rendering engineers/new
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" [0m
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/view/skillmanager/app/views/layouts/application.html.erb:11)
+Completed in 76ms (View: 19, DB: 0) | 200 OK [http://localhost/engineers/new]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:23:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/tableftB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:23:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/body-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:23:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/header-bg.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-10-20 21:23:02) [GET]
+
+ActionController::RoutingError (No route matches "/images/tabrightB.gif" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

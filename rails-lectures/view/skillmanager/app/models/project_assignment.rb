@@ -13,10 +13,6 @@ class ProjectAssignment < ActiveRecord::Base
      puts engineer
      puts project 
      puts "#{name}"
-     
-     project=Project.find_by_name(name) unless project
-     puts "Assigned project #{project.id}"
   end
-  
   
 end

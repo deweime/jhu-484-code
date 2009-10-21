@@ -5,4 +5,8 @@ module ApplicationHelper
         e.project_assignments.build if e.project_assignments.empty?
       end
   end
+  
+  def page_title
+       @page_title || "605.484 Rails Views"
+  end
 end
