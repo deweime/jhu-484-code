@@ -1,0 +1,61 @@
+<h1>New engineer</h1>
+
+
+<% form_for setup_engineer(@engineer), :html => { :multipart => true }  do |f| %>
+
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname %>
+  </p>
+  <p>
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname %>
+  </p>
+  <p>
+    <%= f.label :years_of_experience %><br />
+    <%= f.text_field :years_of_experience %>
+  </p>
+
+  <fieldset>
+	<legend>Add a Project Assignment</legend>
+	
+	<% f.fields_for :project_assignments do |pa| %>
+
+	    <%= pa.label :sdate %>
+	    <%= pa.text_field :sdate %>
+	
+	     <%= pa.label :edate %>
+		 <%= pa.text_field :edate %>
+
+	    <% unless pa.object.new_record? %>
+	      <%= pa.check_box '_delete' %>
+	      <%= pa.label '_delete', 'Remove' %>
+	    <% end %>
+	
+		
+	    <%= pa.label :name, "Project Name" %>
+        <%= pa.collection_select(:project_id, Project.all, :id, :name) %>
+
+	 <% end %>
+  </fieldset>
+
+  <fieldset>
+	<legend>Upload a File</legend>
+	<%= error_messages_for :resource%>
+	<% fields_for :resource do |r| %>
+	  Role: <%= r.text_field :role%>
+	  <%= r.file_field :f %>
+	<% end %>
+  </fieldset>
+
+
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', engineers_path %>

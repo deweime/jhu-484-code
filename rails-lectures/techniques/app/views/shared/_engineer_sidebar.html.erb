@@ -1,0 +1,43 @@
+<% engineer = engineer_sidebar %>
+
+<% content_for(:sidecontent) do %>
+
+<h4>Tags</h4>
+<ul>
+  <% for tag in engineer.tags %> 
+   <li><a href="<%=engineer_path(:view =>'tag', :tag => tag.name)%>"><%= tag.name %></a></li>
+  <% end %>
+</ul>
+
+
+<h4>Similar Users</h4>
+    <ul>
+        <li><a href="#">User 1</a></li>
+        <li><a href="#">User 2</a></li>
+    </ul>
+
+	<h4>Tag Cloud (All Tags)</h4>
+	<ul>
+	  <% tag_cloud @tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class| %>
+	    <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+	  <% end %>
+	</ul>
+
+<br/>
+
+<h4>Resources</h4>
+
+<% if engineer.resources %>
+<ul>
+  <% engineer.resources.each do |r| %>
+	  <li><a href="<%=r.f.url%>">  <%= r.role %> (Link)</a></li>
+
+	  <% if image?(r.f_content_type) %>
+	      <%= image_tag r.f.url(:thumb) %>
+	  <% end %>
+
+  <% end %>
+</ul>
+<% end %>
+
+<% end %>

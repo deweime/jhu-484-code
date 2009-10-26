@@ -1,0 +1,42 @@
+<h1>Editing engineer</h1>
+
+<% form_for @engineer, :html => { :multipart => true }  do |f| %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname %>
+  </p>
+  <p>
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname %>
+  </p>
+  <p>
+    <%= f.label :years_of_experience %><br />
+    <%= f.text_field :years_of_experience %>
+  </p>
+
+  <p>
+    <%= f.label 'Tag List (Delimiter = ,)' %><br />
+    <%= f.text_field :tag_list %>
+  </p>
+
+  <fieldset>
+	<legend>Upload a File</legend>
+	<%= error_messages_for :resource%>
+	<% fields_for :resource do |r| %>
+	  Role: <%= r.text_field :role%>
+	  <%= r.file_field :f %>
+	<% end %>
+  </fieldset>
+
+
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @engineer %> |
+<%= link_to 'Back', engineers_path %>

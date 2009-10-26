@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Engineers: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'style', :media => 'screen' %>
+  <%= stylesheet_link_tag 'print', :media => 'print' %>
+
+  <%= auto_discovery_link_tag :atom, formatted_engineers_url(:atom), :title=>'New Engineers' %>
+
+  <%= javascript_include_tag :defaults%>
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="navigation">
+        <h1>Collaborative Development with Ruby on Rails</h1>
+
+         <br/><br/>
+         <table>
+	<tr>
+			
+		</tr>
+		</table>
+			
+        <ul>
+	        <li><%= link_to ('<span>Home</span>'), index_path %> </li>
+            <li><%= link_to ('<span>Engineers</span>'), engineers_path %> </li>
+            <li><%= link_to ('<span>Projects</span>'), projects_path %> </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <p style="color: green"><%= flash[:notice] %></p>
+		<%= yield %>
+    </div>
+
+    <div id="sidecontent">
+
+		
+		<h4>Time</h4>
+		Dynamically Updating Time
+
+		<div id="time_div">
+		</div>
+	
+        <%= yield :sidecontent %>
+    </div>
+
+    <div id="footer">
+        <span class="left">&copy; 2009 No one at all</span>
+    </div>
+
+</div>
+
+</body>
+</html>
+
