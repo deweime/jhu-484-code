@@ -1,0 +1,26 @@
+<h1>Listing project_assignments</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Engineer</th>
+    <th>Sdate</th>
+    <th>Edate</th>
+  </tr>
+
+<% @project_assignments.each do |project_assignment| %>
+  <tr>
+    <td><%=h project_assignment.project_id %></td>
+    <td><%=h project_assignment.engineer_id %></td>
+    <td><%=h project_assignment.sdate %></td>
+    <td><%=h project_assignment.edate %></td>
+    <td><%= link_to 'Show', project_assignment %></td>
+    <td><%= link_to 'Edit', edit_project_assignment_path(project_assignment) %></td>
+    <td><%= link_to 'Destroy', project_assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New project_assignment', new_project_assignment_path %>

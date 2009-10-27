@@ -1,0 +1,41 @@
+<% engineer = sidebar %>
+
+<div class="block">
+  <h3>Simple Block</h3>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+
+<% if engineer %>
+<div class="block">
+  <h3>Tagged</h3>
+  <ul class="navigation">
+    <% for tag in engineer.tags %> 
+       <li><a href="<%=engineer_path(:view =>'tag', :tag => tag.name)%>"><%= tag.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if engineer %>
+<div class="block">
+  <h3>Resources</h3>
+
+  <% if engineer.resources %>
+    <ul class="navigation">
+      <% engineer.resources.each do |r| %>
+	    <li><a href="<%=r.f.url%>">  <%= r.role %> (Link)</a></li>
+
+	    <% if image?(r.f_content_type) %>
+	      <%= image_tag r.f.url(:thumb) %>
+	    <% end %>
+
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<% end %>
+
+

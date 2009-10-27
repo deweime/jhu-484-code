@@ -1,0 +1,28 @@
+<h1>Editing project_assignment</h1>
+
+<% form_for(@project_assignment) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p>
+    <%= f.label :engineer_id %><br />
+    <%= f.text_field :engineer_id %>
+  </p>
+  <p>
+    <%= f.label :sdate %><br />
+    <%= f.date_select :sdate %>
+  </p>
+  <p>
+    <%= f.label :edate %><br />
+    <%= f.date_select :edate %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @project_assignment %> |
+<%= link_to 'Back', project_assignments_path %>

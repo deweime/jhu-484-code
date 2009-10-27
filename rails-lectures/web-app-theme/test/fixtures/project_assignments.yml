@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project_id: 1
+  engineer_id: 1
+  sdate: 2009-10-20
+  edate: 2009-10-20
+
+two:
+  project_id: 1
+  engineer_id: 1
+  sdate: 2009-10-20
+  edate: 2009-10-20
