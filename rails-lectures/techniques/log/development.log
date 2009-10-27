@@ -3731,3 +3731,28 @@ to_solr_doc: creating doc for class: Engineer, id: 8
 <doc><field name='type_t'>Engineer</field><field name='pk_i'>8</field><field name='id'>Engineer:8</field><field name='fname_t' boost='1.0'>XYZ</field><field name='lname_t' boost='1.0'>ABC</field></doc>
 Index for Engineer has been rebuilt
   [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" WHERE (engineers.id in (4)) [0m
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:12:10) [GET]
+  [4;36;1mTag Load (3.4ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.9ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/techniques/app/views/layouts/application.html.erb:11)
+Completed in 189ms (View: 141, DB: 4) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:12:12) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering template within layouts/application
+Rendering engineers/index
+DEPRECATION WARNING: formatted_engineers_url() has been deprecated. Please pass format to the standard engineers_url method instead.. (called from _run_erb_app47views47layouts47application46html46erb at /Users/Dan/work/jhu-484-code/rails-lectures/techniques/app/views/layouts/application.html.erb:11)
+Completed in 30ms (View: 20, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 20:12:13) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" [0m
+Rendering engineers/index
+Completed in 154ms (View: 144, DB: 1) | 200 OK [http://localhost/engineers.atom]

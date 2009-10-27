@@ -5268,3 +5268,117 @@ Rendering engineers/show
   [4;35;1mResource Load (0.4ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".engineer_id = 4) [0m
 Rendered engineers/_sidebar (9.0ms)
 Completed in 22ms (View: 12, DB: 2) | 200 OK [http://localhost/engineers/4?tag=Black&view=tag]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:27:01) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering engineers/index
+Rendered engineers/_sidebar (1.9ms)
+Completed in 194ms (View: 118, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-26 20:27:08) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering engineers/show
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Engineer') AND ("taggings".taggable_id = 4)) [0m
+  [4;35;1mResource Load (0.4ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".engineer_id = 4) [0m
+Rendered engineers/_sidebar (11.0ms)
+Completed in 30ms (View: 20, DB: 2) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:27:15) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering engineers/index
+Rendered engineers/_sidebar (0.1ms)
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-26 20:27:18) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 8) [0m
+Rendering template within layouts/application
+Rendering engineers/show
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Engineer') AND ("taggings".taggable_id = 8)) [0m
+  [4;35;1mResource Load (0.3ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".engineer_id = 8) [0m
+Rendered engineers/_sidebar (8.0ms)
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers/8]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:27:30) [GET]
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering engineers/index
+Rendered engineers/_sidebar (0.1ms)
+Completed in 28ms (View: 19, DB: 1) | 200 OK [http://localhost/engineers]
+
+
+Processing EngineersController#show (for 127.0.0.1 at 2009-10-26 20:27:35) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mTag Load (0.9ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.2ms)[0m   [0mSELECT * FROM "engineers" WHERE ("engineers"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering engineers/show
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Engineer') AND ("taggings".taggable_id = 4)) [0m
+  [4;35;1mResource Load (0.4ms)[0m   [0mSELECT * FROM "resources" WHERE ("resources".engineer_id = 4) [0m
+Rendered engineers/_sidebar (10.8ms)
+Completed in 25ms (View: 14, DB: 2) | 200 OK [http://localhost/engineers/4]
+
+
+Processing EngineersController#index (for 127.0.0.1 at 2009-10-26 20:34:36) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering engineers/index
+Rendered engineers/_sidebar (0.1ms)
+Completed in 28ms (View: 19, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 20:40:49) [GET]
+  [4;36;1mTag Load (0.9ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.5ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 26ms (View: 16, DB: 1) | 200 OK [http://localhost/engineers.atom]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 21:10:50) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers.atom]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 21:40:52) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers.atom]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 22:10:54) [GET]
+  [4;36;1mTag Load (0.8ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 85ms (View: 75, DB: 1) | 200 OK [http://localhost/engineers.atom]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 22:40:56) [GET]
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/engineers.atom]
+
+
+Processing EngineersController#index to atom (for 127.0.0.1 at 2009-10-26 23:10:52) [GET]
+  [4;36;1mTag Load (0.7ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM "tags" INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN engineers ON engineers.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Engineer') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+  [4;35;1mEngineer Load (0.4ms)[0m   [0mSELECT * FROM "engineers" LIMIT 10 OFFSET 0[0m
+Rendering engineers/index
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://localhost/engineers.atom]
