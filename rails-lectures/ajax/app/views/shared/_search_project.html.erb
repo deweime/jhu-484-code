@@ -1,0 +1,9 @@
+  Find Project: 
+  <% form_for(:project, :url => {:controller => 'projects', :action => 'search_by_name'}) do |f| %>
+
+      <div class="auto_complete" id="project_name_auto_complete"></div>
+		 <%= text_field_with_auto_complete :project, :name %>
+
+	     <p><%= submit_tag "Load" %></p>
+	 <% end %>
+

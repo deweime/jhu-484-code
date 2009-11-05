@@ -1,0 +1,2 @@
+module ProjectAssignmentsHelper
+end

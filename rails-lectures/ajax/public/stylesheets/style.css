@@ -1,0 +1,364 @@
+/***** Page *****/
+
+body {
+    background: #FFFFFF;
+    background-image: url( '../images/body-bg.jpg' );
+    background-position: top;
+    background-repeat: repeat-x;
+    color: #333;
+    margin: .5em;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .8em;
+}
+
+body a:visited {
+    text-decoration: none;
+    border: 0;
+}
+
+.left {
+    float: left;
+    padding: 0;
+    text-align: left;
+    font-size: 1em;
+    font-weight: normal;
+    display: inline;
+}
+
+.right {
+    display: inline;
+    float: right;
+    text-align: right;
+    padding: 0;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/***** Wrapper *****/
+
+#wrapper {
+    background: #FCFBE9;
+    border: 1px solid #BBD1E2;
+    color: #000;
+    margin: 0 auto;
+    padding: 1em;
+    width: 740px;
+}
+
+/***** Navigation *****/
+
+#navigation {
+    margin: 0 0 0 0;
+    float: left;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #EACE46;
+    border: 1px solid #EBCD48;
+    background-image:url('../images/header-bg.jpg');
+    background-position:bottom right;
+    background-repeat:no-repeat;
+}
+
+#navigation ul {
+    margin: 0;
+    padding: 4.8em 0 0 .3em;
+    list-style: none;
+}
+
+#navigation li {
+    float: left;
+    white-space: nowrap;
+}
+
+#navigation li a {
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0 0 0 4px;
+    text-decoration: none;
+    background-image: url( '../images/tableftB.gif' );
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+#navigation a span {
+    float: left;
+    display: block;
+    background-image: url( '../images/tabrightB.gif' );
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    padding: 5px 15px 4px 6px;
+    color: #9E8100;
+}
+
+#navigation h1 {
+    margin: 0 0 -.6em 0;
+    padding: 1em 0 0 1em;
+    font-size: 1.5em;
+    letter-spacing: .1em;
+    color: #ffffff;
+    background-color:#EACE46;
+}
+
+#navigation h2 {
+    margin: 0 0 0 0;
+    padding: 1em 0 0 1.75em;
+    font-size: .9em;
+    font-weight: 300;
+    letter-spacing: .1em;
+    color: #000000;
+    background-color:#EACE46;
+}
+
+#navigation a:hover span, #navigation .selected {
+    color: #000;
+    background-color: transparent;
+}
+
+#navigation a:hover, #navigation .selected {
+    background-position: 0% -42px;
+}
+
+#navigation a:hover span, #navigation .selected span {
+    background-position: 100% -42px;
+    color: #000000;
+    background-color: transparent;
+}
+
+/***** Content *****/
+
+#content {
+    background: #fff;
+    float: left;
+    padding: 15px 10px;
+    width: 555px;
+    border-right: 1px solid #E1BC93;
+    color: #000;
+}
+
+#content h1 {
+    color: #9E8100;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 10px 5px 0 0;
+    text-align: left;
+    background: inherit;
+}
+
+#content h2 {
+    color: #9E8100;
+    font-size: .9em;
+    margin: 0;
+    padding: 0 0 0 10px;
+    font-weight: normal;
+    background: inherit;
+}
+
+#content p {
+    margin: 10px 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: inherit;
+    color: inherit;
+}
+
+#content a {
+    text-decoration: underline;
+    color: #547699;
+    background-color: #FFFFFF;
+}
+
+#content a:hover {
+    text-decoration: underline;
+}
+
+#content ul{
+    list-style-type:square;
+}
+
+#content ul li{
+    padding-bottom:.9em;
+}
+/***** Side Content *****/
+
+#sidecontent {
+    margin: 0;
+    padding: 15px 0 0 0;
+    float: right;
+    width: 164px;
+    color: #000000;
+    background-color: #FCFBE9;
+}
+
+#sidecontent ul {
+    color: #333;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: inherit;
+}
+
+#sidecontent li {
+    padding: 0.1ex 0;
+}
+
+#sidecontent li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1em;
+    display: block;
+    padding: 8px 20px;
+    background: inherit;
+}
+
+#sidecontent li a:hover {
+    background: #9E8100;
+    color: #FFFFFF;
+}
+
+#sidecontent h4 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 0 2px 15px;
+}
+
+/***** Footer *****/
+
+#footer {
+    background: #FFFFFF;
+    clear: both;
+    color: #547699;
+    font-size: .9em;
+    height: 1.8em;
+    line-height: 1.8em;
+    padding: 0;
+    text-align: center;
+}
+
+#footer a {
+    background: inherit;
+    color: #547699;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+#footer .left {
+    margin: 0 0 0 8px;
+
+}
+
+#footer .right {
+
+    margin: 0 8px 0 0;
+}
+
+
+/* Styles for project-assignment */
+
+#project-assignment-list table {
+        border-collapse: collapse;
+}
+
+#project-assignment-list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#project-assignment-list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+#project-assignment-list .list-description {
+  width:        60%;
+}
+
+#project-assignment-list .list-description dl {
+        margin: 0;
+}
+
+#project-assignment-list .list-description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#project-assignment-list .list-description dd {
+        margin: 0;
+}
+
+#project-assignment-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#project-assignment-list .list-line-even {
+  background:   #FFFFFF;
+}
+
+#project-assignment-list .list-line-odd {
+  background:   #FCFBE9;
+}
+
+
+/* Styles for engineer-list */
+
+#engineer-list table {
+        border-collapse: collapse;
+}
+
+#engineer-list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#engineer-list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+#engineer-list .list-description {
+  width:        60%;
+}
+
+#engineer-list .list-description dl {
+        margin: 0;
+}
+
+#engineer-list .list-description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#engineer-list .list-description dd {
+        margin: 0;
+}
+
+#engineer-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#engineer-list .list-line-even {
+  background:   #FFFFFF;
+}
+
+#engineer-list .list-line-odd {
+  background:   #FCFBE9;
+}
+
+.tag1 { font-size: 0.2em; }
+  .tag2 { font-size: 0.6em; }
+  .tag3 { font-size: 1.0em; }
+  .tag4 { font-size: 1.4em; }
+
+

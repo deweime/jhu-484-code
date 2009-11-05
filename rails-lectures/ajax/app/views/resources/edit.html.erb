@@ -1,0 +1,20 @@
+<h1>Editing resource</h1>
+
+<% form_for(@resource) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :engineer_id %><br />
+    <%= f.text_field :engineer_id %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @resource %> |
+<%= link_to 'Back', resources_path %>

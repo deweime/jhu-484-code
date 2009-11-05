@@ -1,0 +1,19 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', engineers_path  %></li>
+      <li class="active"><%= link_to 'New', new_engineer_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">            
+    <h2 class="title">New Engineer</h2>
+    <div class="inner">
+      <% form_for :engineer, :url => engineers_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

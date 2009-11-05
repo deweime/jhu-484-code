@@ -1,0 +1,91 @@
+<% engineer = sidebar %>
+
+
+<div class="block">
+  <h3>Search</h3>
+  <div class="content">
+    	<%= render(:partial => 'shared/search_engineer') %>
+  </div>
+</div>
+
+<div class="block">
+   <h3>Time</h3>
+   <ul class="navigation">
+   <li>
+	<%= link_to_remote( "Server Time",
+				  :url =>{ :action => :get_time }) %>
+
+	</li>
+   </ul>
+
+   <div id="time_div">
+   </div>
+</div>
+
+<!-->
+<div class="block">
+   <h3>Periodic Time</h3>
+
+    <%= periodically_call_remote( :url =>{ :action => 'get_time' } ,
+		                         :frequency => 3) %>
+    <div id="time_div">
+    </div>
+</div>
+-->
+
+<!-->
+<div class="block">
+<h4>Tag Cloud (All Tags)</h4>
+	<ul>
+	  <% tag_cloud @tags, %w(tag1 tag2 tag3 tag4) do |tag, css_class| %>
+	    <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+	  <% end %>
+	</ul>
+<br/>
+</div>
+-->
+
+
+<% if engineer %>
+<div class="block">
+  <h3>Matches</h3>
+  <ul class="navigation">
+    <%= periodically_call_remote( :url =>{ :action => 'get_matches', :id => engineer.id } ,
+		                         :frequency => 10) %>
+  </ul>
+	<div id="match_div">
+	</div>
+</div>
+<% end %>
+
+<% if engineer %>
+<div class="block">
+  <h3>Tagged</h3>
+  <ul class="navigation">
+    <% for tag in engineer.tags %>
+       <li><a href="<%=engineer_tag_url(:tag => tag.name)%>"><%= tag.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if engineer %>
+<div class="block">
+  <h3>Resources</h3>
+
+  <% if engineer.resources %>
+    <ul class="navigation">
+      <% engineer.resources.each do |r| %>
+            <li><a href="<%=r.f.url%>">  <%= r.role %> (Link)</a></li>
+
+            <% if image?(r.f_content_type) %>
+              <%= image_tag r.f.url(:thumb) %>
+            <% end %>
+
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<% end %>
+
