@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     
     render :update do |page|
         page.replace_html 'time_div', :partial => "shared/time_partial"
-        page.visual_effect :highlight, 'time_div'
+       page.visual_effect :highlight, 'time_div'
         page.visual_effect :shake, 'time_div'
         
     end

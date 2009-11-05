@@ -12,21 +12,29 @@
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-										<th>Fname</th>
-					          <th>Created at</th>
+		  <th>Fname</th>
+		  <th>Lname</th>
+	      <th>Created at</th>
           <th class="last">&nbsp;</th>
         </tr>
+
         <% @engineers.each do |engineer| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= engineer.id %>
           </td>
-										<td>
-						<%= link_to engineer.fname, engineer_path(engineer) %>
-					</td>
-										<td>
-            <%= engineer.created_at %>
+		  <td>
+			<%= link_to engineer.fname, engineer_path(engineer) %>
+		  </td>
+		  <td>
+		     <%= engineer.lname %>
+		   <td>
+		   <td>
+            <%= time_ago_in_words(engineer.created_at) %> ago
           </td>
+           
+          
+
           <td class="last">
             <%= link_to 'show', engineer_path(engineer) %> |
             <%= link_to 'edit', edit_engineer_path(engineer) %> |

@@ -9,6 +9,7 @@ class EngineersController < ApplicationController
       render(:action => :show, :id => @engineer)
   end
 
+  # Gets the tags for the tag cloud
   def get_tags
       @tags = Engineer.tag_counts
   end
@@ -23,12 +24,12 @@ class EngineersController < ApplicationController
   def get_matches
     puts "*** Executed get matches #{params[:id]}"    
     @engineer = Engineer.find(params[:id])
-    render :update do |page|
-        page.replace_html 'matches_div', :partial => "shared/matches_partial", :object => @engineer
-        page.visual_effect :highlight, 'matches_div'        
+    render :update do |page|        
+        page.replace_html 'match_div', :partial => "shared/matches_partial", :object => @engineer
+        page.visual_effect :highlight, 'match_div'        
     end
   end
-    
+  
   
   # GET /engineers
   # GET /engineers.xml

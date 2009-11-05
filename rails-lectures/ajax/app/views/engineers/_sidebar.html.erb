@@ -49,12 +49,14 @@
 <% if engineer %>
 <div class="block">
   <h3>Matches</h3>
-  <ul class="navigation">
-    <%= periodically_call_remote( :url =>{ :action => 'get_matches', :id => engineer.id } ,
+
+  <!-- Now keep it updated -->
+  <%= periodically_call_remote( :url =>{ :action => 'get_matches', :id => engineer.id } ,
 		                         :frequency => 10) %>
+  <ul class="navigation">
+  <div id="match_div">
+  </div>
   </ul>
-	<div id="match_div">
-	</div>
 </div>
 <% end %>
 
